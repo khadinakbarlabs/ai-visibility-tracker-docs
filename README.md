@@ -1,25 +1,63 @@
 # AI Visibility Tracker
 
-AI Visibility Tracker is a skills-only plugin maintained by **Khadin Akbar**. It helps content teams use AI citation evidence to plan and prioritize work: measure whether AI-search answers cite a domain or specific pages, compare matching saved checks, and produce a content action plan.
+A **skills-only plugin** that uses the separately installed official **Apify CLI**, following Postiz's skill-to-CLI pattern. Its citation workflow runs [Khadin Akbar's AI Search Visibility Tracker](https://apify.com/khadinakbar/ai-search-visibility-tracker) to measure domain/page citations, citation position, content gaps and competing domains in AI search answers.
 
-Its three skills are `ai-visibility-tracker`, `visibility-trends`, and `visibility-action-plan`. They use the independently installed official Apify CLI and [Khadin Akbar's AI Search Visibility Tracker Actor](https://apify.com/khadinakbar/ai-search-visibility-tracker) through the user's Apify account. This data and analytics workflow measures citation evidence, compares saved runs and reports content gaps for content research.
+Nine coordinated skills cover SEO campaign orchestration, AI citation baselines and comparisons, competitor traffic and Google rankings, keyword opportunities, search trends, backlink samples, link prospects, and one evidence-linked action plan. The package includes no executable scripts, server, MCP connection, hooks, npm package or bundled dependencies.
 
-## Requirements and use
+## Requirements
 
-Running a check requires a host with local command execution and internet access, the official Apify CLI, jq and a user-controlled Apify account. A chat surface without command execution can analyze supplied results or prepare a plan. Third-party usage charges apply under the user's Apify agreement; the skills package supplies no credits or AI-provider account.
+Use a host with shell execution and internet access, the official `apify-cli` providing `apify api`, `jq`, and your authenticated Apify account. Apify charges apply. No separate AI-provider keys are supplied by this plugin. A chat surface without command execution can analyze a supplied export or provide a plan but cannot run the CLI.
 
-Authenticate through the official Apify CLI's login flow in your own terminal. Never paste an API token into chat. Authorize the scope and spending limit before starting a billable run. Use public business information, such as your domain and general industry questions; do not submit personal, confidential or customer data.
+If needed, install the official CLI with `npm install -g apify-cli`, then complete `apify login` in your own terminal. Keep your API token in Apify's local authentication flow; do not paste it into chat or package files. Verify with `apify info > /dev/null`.
 
-The plugin bundles no executable scripts, server, MCP connection, hooks or dependencies. It adds no automatic telemetry or recurring schedule. Results and run records are handled by Apify and local exports by your host environment.
+## Use
 
-## What the results mean
+Start with `$seo-growth-agent` on OpenAI/Codex or `/ai-visibility-tracker:seo-growth-agent` on Claude Code for the complete campaign. Specialist skills are roles guided by the host, not separate bundled processes.
 
-The Actor reports domain and page citations, citation-list position, content gaps and competing domains. These are sampled API observations, not guaranteed rankings across consumer AI apps. Missing and diagnostic responses are unknown. Trends require matching domains, platforms and question panels, and a content recommendation does not establish causation or guarantee a visibility gain.
+OpenAI/Codex: invoke `$ai-visibility-tracker`, `$visibility-trends` or `$visibility-action-plan`, or describe your goal naturally.
 
-## Product information
+Claude Code: invoke `/ai-visibility-tracker:ai-visibility-tracker`, `/ai-visibility-tracker:visibility-trends` or `/ai-visibility-tracker:visibility-action-plan`. To test a source folder without installing, launch `claude --plugin-dir /path/to/ai-visibility-tracker`.
 
-- [Privacy notice](PRIVACY.md)
-- [Terms of use](TERMS.md)
-- [Support and issue reporting](SUPPORT.md)
+Examples:
 
-This repository publishes product documentation. It does not include the plugin's skill source or the Actor's server source. Directory availability is subject to the relevant platform's review; preparation or validation does not imply an approved listing.
+- “Check whether ChatGPT, Perplexity and Gemini cite ahrefs.com for backlink research. Use these two exact buyer questions, with a $2 run budget.”
+- “Compare these two saved citation checks and show which page citations were gained or lost.”
+- “Create a content plan for topics where competing domains were cited and my site was absent.”
+
+The main skill prepares input and checks current pricing before a billable run. Exact questions use `queryTemplates: []`; this Actor repeats them unchanged for each keyword. See the [Actor contract](https://apify.com/khadinakbar/ai-search-visibility-tracker) and [CLI workflow](https://docs.apify.com/cli/docs/reference).
+
+## Specialist workflows
+
+| Skill | Purpose |
+| --- | --- |
+| seo-growth-agent | Intake, shared budget, routing and campaign continuity |
+| ai-visibility-tracker | AI domain and page citation baseline |
+| visibility-trends | Compare matching saved AI citation panels |
+| competitor-intelligence | Competitor discovery, traffic estimates and Google ranks |
+| keyword-opportunities | Keyword ideas, search demand and available difficulty |
+| search-trends | Seasonality and relative search interest |
+| competitor-backlinks | Compare capped backlink samples |
+| link-opportunities | Qualify prospects using backlinks and AI citation sources |
+| visibility-action-plan | Combine evidence into one prioritized action queue |
+
+Read the [mapped Actor contracts](https://apify.com/khadinakbar) and [campaign execution rules](https://docs.apify.com/api/v2/actors-runs-post). Live specialist research uses seven additional mapped Apify Actors. Examples do not authorize spending; the campaign shares one total cap. Traffic is estimated, Trends are normalized, and backlink samples are incomplete. Results cannot guarantee improved ranks or AI citations. AI content detection is outside this release.
+
+## Distribution
+
+The OpenAI export contains the portable root manifest and a synchronized Codex compatibility manifest. The Anthropic export contains only its native `.claude-plugin/plugin.json` manifest. Both include the same skills and references; only the OpenAI export includes `agents/openai.yaml` UI metadata. Archives isolate the provider-specific files.
+
+Host installation does not create paid runs or schedules. A verified local package is distinct from public directory approval. Public listings require real publisher, policy/support URLs, permitted availability and platform review; missing declarations are not fabricated.
+
+## Data and limits
+
+Topics, domain and optional page/competitor targets are sent through the CLI to Apify for the requested Actor. Credentials remain managed by the independently installed CLI. Results and run records live in your Apify account; local exports belong in a private directory outside this package. Do not submit personal, confidential or customer data as AI search prompts.
+
+Citation measurements are sampled API observations, not universal rankings across consumer apps. Missing/diagnostic results are unknown, citation position refers to the source list, and observed changes do not establish causation. No sentiment or brand-mention metrics are claimed for this Actor. Recurring tracking needs a separately configured, verified durable schedule and spend budget.
+
+## Product pages
+
+Maintained by Khadin Akbar. See the [product website](https://github.com/khadinakbarlabs/ai-visibility-tracker-docs), [support page](https://github.com/khadinakbarlabs/ai-visibility-tracker-docs/blob/main/SUPPORT.md), [privacy notice](https://github.com/khadinakbarlabs/ai-visibility-tracker-docs/blob/main/PRIVACY.md) and [terms of use](https://github.com/khadinakbarlabs/ai-visibility-tracker-docs/blob/main/TERMS.md).
+
+## User-owned credentials
+
+Every live user must supply their own Apify API token through the official local `apify login` flow or their host's supported secret storage. Authenticate only to that user's account. Never use, bundle, borrow or distribute the publisher's token or authenticated session. If an existing session's ownership is uncertain, have the user verify it locally before billable work. A valid existing user-owned login satisfies this requirement; do not ask the user to paste tokens into chat. Saved-export analysis needs no token.
