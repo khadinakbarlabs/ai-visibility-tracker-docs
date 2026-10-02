@@ -2,7 +2,7 @@
 
 AI Visibility Tracker is a skills-only plugin maintained by **Khadin Akbar**. It helps content teams use AI citation evidence to plan and prioritize work: measure whether AI-search answers cite a domain or specific pages, compare matching saved checks, and produce a content action plan.
 
-Its three skills are `ai-visibility-tracker`, `visibility-trends`, and `visibility-action-plan`. They use the independently installed official Apify CLI and [Khadin Akbar's AI Search Visibility Tracker Actor](https://apify.com/khadinakbar/ai-search-visibility-tracker) through the user's Apify account. This is a productivity workflow for content research, report preparation and task prioritization.
+Its three skills are `ai-visibility-tracker`, `visibility-trends`, and `visibility-action-plan`. They use the independently installed official Apify CLI and [Khadin Akbar's AI Search Visibility Tracker Actor](https://apify.com/khadinakbar/ai-search-visibility-tracker) through the user's Apify account. This data and analytics workflow measures citation evidence, compares saved runs and reports content gaps for content research.
 
 ## Requirements and use
 
