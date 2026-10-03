@@ -61,3 +61,7 @@ Maintained by Khadin Akbar. See the [product website](https://github.com/khadina
 ## User-owned credentials
 
 Every live user must supply their own Apify API token through the official local `apify login` flow or their host's supported secret storage. Authenticate only to that user's account. Never use, bundle, borrow or distribute the publisher's token or authenticated session. If an existing session's ownership is uncertain, have the user verify it locally before billable work. A valid existing user-owned login satisfies this requirement; do not ask the user to paste tokens into chat. Saved-export analysis needs no token.
+
+## License
+
+The skills-only plugin is available under the [MIT license](LICENSE). This grants reuse of package files; Apify Actors and third-party services retain their separate terms.
