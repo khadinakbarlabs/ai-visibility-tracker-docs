@@ -1,3 +1,5 @@
+> Documentation moved: [current terms page](https://github.com/khadinakbarlabs/ai-visibility-tracker/blob/main/TERMS.md). This archived copy preserves existing directory links.
+
 # AI Visibility Tracker Terms of Use
 
 Published by Khadin Akbar. Updated 2026-10-03.

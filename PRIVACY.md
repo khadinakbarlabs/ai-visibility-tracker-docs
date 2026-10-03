@@ -1,3 +1,5 @@
+> Documentation moved: [current privacy page](https://github.com/khadinakbarlabs/ai-visibility-tracker/blob/main/PRIVACY.md). This archived copy preserves existing directory links.
+
 # AI Visibility Tracker Privacy Notice
 
 Published by Khadin Akbar. Updated 2026-10-03.
